@@ -5,18 +5,21 @@ import numpy as np
 
 w = [0, 0, 0]
 
+
 # Функция активации
 def activate(a):
     #return 0 if a <= 0 else 1
     #return 0 if a < 0 else a
     return 1/(1+np.exp(-a))
 
-#Функция изменения весов
+
+#Функция для вычисления выхода сети
 def rightProp(inputs):
     res = 0
     for i in range(len(inputs)):
         res += w[i] * inputs[i]
     return res
+
 
 #Функция тренировки, подбор весов
 def train(data, exp, LR=0.1, EPOCH=50):
